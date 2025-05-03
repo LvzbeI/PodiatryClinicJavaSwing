@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  podiatryClinicDB:
+    image: postgres
+    container_name: podiatryclinicdb
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=podiatrydatabase
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+ 

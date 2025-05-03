@@ -1,0 +1,2 @@
+mvn install:install-file -Dfile=C:\Users\xseth\Documents\NetBeansProjects\PodiatryClinic\lib\swing-toast-notifications-1.0.4.jar -DgroupId=raven.toast -DartifactId=swing-toast-notifications -Dversion=1.0.4 -Dpackaging=jar
+pause
