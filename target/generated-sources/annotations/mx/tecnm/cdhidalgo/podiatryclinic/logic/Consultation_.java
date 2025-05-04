@@ -5,7 +5,7 @@ import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import mx.tecnm.cdhidalgo.podiatryclinic.logic.User;
 
-@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2025-05-03T10:51:18", comments="EclipseLink-2.7.12.v20230209-rNA")
+@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2025-05-03T19:43:05", comments="EclipseLink-2.7.12.v20230209-rNA")
 @StaticMetamodel(Consultation.class)
 public class Consultation_ { 
 

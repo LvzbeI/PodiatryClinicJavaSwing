@@ -44,7 +44,7 @@ String consultationDate = date.format(format);
     
     
     public void init(){
-        setLayout(new MigLayout("wrap 2,fillx,insets 10 20 10 20", "[fill,200]"));
+        setLayout(new MigLayout("wrap 2,fillx,insets 10 20 10 20", "[fill,50%][fill,50%]"));
        // setPreferredSize(new Dimension(600, 400)); 
         
         JLabel lbTitle = new JLabel("Edit Petient Information");
@@ -82,7 +82,7 @@ String consultationDate = date.format(format);
         // SEX COMBOBOX
         //add(new JLabel("Sex option type"), "span 2");
         add(new JLabel("Sex Option Type"), "gapy 5 5");
-        add(new JLabel("Due Date") , "gapy 5 5");
+        add(new JLabel("Born Date") , "gapy 5 5");
         JComboBox cmbSex = new JComboBox();
         cmbSex.addItem("-");
         cmbSex.addItem("Male");
@@ -91,8 +91,9 @@ String consultationDate = date.format(format);
 
          // BORNDATE 
         JFormattedTextField dateEditor = new JFormattedTextField();
-        DatePicker bornDate = new DatePicker();
-        bornDate.setEditor(dateEditor);
+        DatePicker datePicker = new DatePicker();
+        datePicker.setEditor(dateEditor);
+       // datePicker.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Select your born date");
         add(cmbSex);
         add(dateEditor);
         
@@ -113,8 +114,8 @@ String consultationDate = date.format(format);
 
         
         // Consultation Date
-        add(new JLabel("Consultation Date"), "gapy n 5");
-         add(new JLabel("Observations"), "gapy n 5");
+        add(new JLabel("Consultation Date"), "gapy 5 5");
+        add(new JLabel("Observations"), "gapy 5 5");
          JTextField txtConsultationDate = new JTextField();
         txtConsultationDate.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, consultationDate);
         txtConsultationDate.setEditable(false);
@@ -122,17 +123,20 @@ String consultationDate = date.format(format);
         
         
         // Observations
-        JTextArea txtObservations = new JTextArea();
+       JTextArea txtObservations = new JTextArea();
+       // JTextField txtObservations = new JTextField();
+      txtObservations.setLineWrap(true);
+txtObservations.setWrapStyleWord(true);
+       
        // textObservations.setEnabled(true);
        // txtObservations.setText("Incoming payment are placed in a secure receiving account to keep\ndestination account details anonymous.");
      //  txtObservations.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Type the observations");
-//       txtObservations.putClientProperty(FlatClientProperties.STYLE, "" +
-//               "border: 2,2,2,2;" +
-//               "font: -1;" +
-//               "background: #EFE6E6;");
+       txtObservations.putClientProperty(FlatClientProperties.STYLE, "" +
+              "border: 2,2,2,2;" +
+               "font: -1;" +
+             "background: #FFFFFF;");
 
-//txtObservations.setLineWrap(true);
-//txtObservations.setWrapStyleWord(true);
+
 //txtObservations.setEditable(true);
 //
 //txtObservations.setPreferredSize(new Dimension(400, 100));
@@ -143,10 +147,10 @@ String consultationDate = date.format(format);
 
 
   
-       add(txtConsultationDate,"gapy n 5");
+        add(txtConsultationDate,"gapy 5 5");
         // add(scrollPane, "gapy n 10, span, w 400!, h 100!, grow 1");
        // add(scrollPane, "span, growx, push");
-      add(txtObservations, "gapy n 5");
+         add(txtObservations, "gapy 5 5");
       // add(textObservations, "gapy 5 5,span 2");
 
        
@@ -175,7 +179,25 @@ String consultationDate = date.format(format);
         });
 
         saveButton.addActionListener(actionEvent -> {
-           Notifications.getInstance().show(Notifications.Type.SUCCESS, Notifications.Location.TOP_CENTER, "Hello sample message");
+//           Notifications.getInstance().show(
+//                   Notifications.Type.SUCCESS, 
+//                   Notifications.Location.TOP_CENTER, 
+//                   "Information Saved successfully");
+           
+           String id =txtID.getText();
+           String name =txtName.getText();
+          String secondname = txtSecondname.getText();
+           String sex = cmbSex.getSelectedItem().toString();
+           String bornDate = dateEditor.getText();
+           String email = txtEmail.getText();
+           String phone = txtPhone.getText();
+           String consultationDate2 = consultationDate;
+           String observations = txtObservations.getText();
+           
+           
+           print(id, name, secondname, sex, bornDate, email, phone, consultationDate2, observations);
+           
+           
            // ModalBorderAction.getModalBorderAction(this).doAction(SimpleModalBorder.OK_OPTION);
           // UIManager.put(ToastClientProperties.TOAST_INFO_ICON, new FlatSVGIcon("home.svg"));
 
@@ -184,6 +206,29 @@ String consultationDate = date.format(format);
         add(cancelButton, "grow 0");
         add(saveButton, "grow 0, al trailing");
         add(clearButton, "grow 0");
+    }
+    
+    
+    public void print(String id, String name, String secondname, String sex, String bornDate, String email, 
+            String phone, String consultationDate2, String observations){
+    
+        
+         Notifications.getInstance().show(
+                   Notifications.Type.ERROR, 
+                   Notifications.Location.TOP_CENTER,
+                   "Campos sin llenar");
+        
+            System.out.println("Id: " + id);
+            System.out.println("name: " + name);
+            System.out.println("secondname: " + secondname);
+            System.out.println("sex: " + sex);
+            System.out.println("bornDate: " + bornDate);
+            System.out.println("email: " + email);
+            System.out.println("phone: " + phone);
+             System.out.println("consultationDate: " + consultationDate2);
+              System.out.println("observations: " + observations);
+            
+          // add(new JLabel("Hora hora"), "");
     }
     
     

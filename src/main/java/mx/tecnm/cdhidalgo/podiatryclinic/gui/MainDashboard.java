@@ -240,7 +240,7 @@ public class MainDashboard extends javax.swing.JFrame {
         getContentPane().add(panelDashboard, java.awt.BorderLayout.LINE_START);
 
         layeredMain.setMaximumSize(new java.awt.Dimension(400, 400));
-        layeredMain.setPreferredSize(new java.awt.Dimension(1280, 720));
+        layeredMain.setPreferredSize(new java.awt.Dimension(1280, 760));
         layeredMain.setLayout(new java.awt.CardLayout());
         getContentPane().add(layeredMain, java.awt.BorderLayout.CENTER);
 
