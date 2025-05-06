@@ -141,13 +141,14 @@ DefaultTableModel model = new DefaultTableModel(colums, 0);
 
     private void searchByNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByNameButtonActionPerformed
         
-        cleanTable();
+       cleanTable();
        //int userId = Integer.parseInt(searchByNameTextField.getText());
        String name = searchByNameTextField.getText();
        
-       if(validateID(name)){
+       if(validateName(name)){
         List<User> user = userJpaController.findUserByName(name);
       
+       System.out.println("");
        for (User u : user) {
          Object[] row = { u.getUserId(), u.getName(), u.getSecondname(), 
             u.getSex(), u.getBornDate(), u.getEmail(), u.getPhone() ,
@@ -220,6 +221,14 @@ DefaultTableModel model = new DefaultTableModel(colums, 0);
     }
     
     
+    
+    public boolean validateName(String name){
+        
+    if(name == null || name.trim().isEmpty()){
+        return false;
+    }
+     return true;
+    }
     
     
     public boolean validateID(String idValue){

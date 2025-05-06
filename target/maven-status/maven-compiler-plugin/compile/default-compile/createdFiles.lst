@@ -1,3 +1,4 @@
+mx\tecnm\cdhidalgo\podiatryclinic\gui\Login.class
 mx\tecnm\cdhidalgo\podiatryclinic\logic\User_.class
 mx\tecnm\cdhidalgo\podiatryclinic\gui\MainDashboard$8.class
 mx\tecnm\cdhidalgo\podiatryclinic\gui\NewConsultation$2.class
@@ -37,6 +38,7 @@ mx\tecnm\cdhidalgo\podiatryclinic\gui\EditPatient$2.class
 mx\tecnm\cdhidalgo\podiatryclinic\logic\Controller.class
 mx\tecnm\cdhidalgo\podiatryclinic\persistence\exceptions\IllegalOrphanException.class
 mx\tecnm\cdhidalgo\podiatryclinic\persistence\exceptions\NonexistentEntityException.class
+mx\tecnm\cdhidalgo\podiatryclinic\gui\Login$1.class
 mx\tecnm\cdhidalgo\podiatryclinic\gui\MainDashboard$3.class
 mx\tecnm\cdhidalgo\podiatryclinic\gui\PaymentForm$1.class
 mx\tecnm\cdhidalgo\podiatryclinic\gui\ShowPatients.class
@@ -52,7 +54,9 @@ mx\tecnm\cdhidalgo\podiatryclinic\persistence\ConsultationJpaController.class
 mx\tecnm\cdhidalgo\podiatryclinic\gui\NewConsultation$4.class
 mx\tecnm\cdhidalgo\podiatryclinic\gui\NewPatient$2.class
 mx\tecnm\cdhidalgo\podiatryclinic\gui\ShowConsultations$2.class
+mx\tecnm\cdhidalgo\podiatryclinic\gui\NewConsultationPanel.class
 mx\tecnm\cdhidalgo\podiatryclinic\gui\MainDashboard$2.class
+mx\tecnm\cdhidalgo\podiatryclinic\gui\EditConsultationPanel.class
 mx\tecnm\cdhidalgo\podiatryclinic\gui\EditConsultation$5.class
 mx\tecnm\cdhidalgo\podiatryclinic\gui\ShowPatients$4.class
 mx\tecnm\cdhidalgo\podiatryclinic\persistence\PersistenceController.class
@@ -63,3 +67,4 @@ mx\tecnm\cdhidalgo\podiatryclinic\gui\NewPatient$1.class
 mx\tecnm\cdhidalgo\podiatryclinic\gui\EditConsultation.class
 mx\tecnm\cdhidalgo\podiatryclinic\gui\MainDashboard$6.class
 mx\tecnm\cdhidalgo\podiatryclinic\gui\ShowConsultations$3.class
+mx\tecnm\cdhidalgo\podiatryclinic\gui\FormsManager.class

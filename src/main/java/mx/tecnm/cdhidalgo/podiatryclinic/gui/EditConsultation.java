@@ -153,6 +153,7 @@ String consultationDate = date.format(format);
    // get the information from the gui    
             
         String idValue = txtConsultationID.getText(); 
+        
          if(valdidateID(idValue)){ 
              int consultationID = Integer.parseInt(txtConsultationID.getText());
              String consultation = txtConsultationData.getText();

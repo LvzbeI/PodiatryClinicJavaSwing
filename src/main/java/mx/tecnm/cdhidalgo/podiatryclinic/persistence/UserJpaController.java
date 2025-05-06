@@ -12,6 +12,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import mx.tecnm.cdhidalgo.podiatryclinic.logic.User;
@@ -128,18 +129,38 @@ public class UserJpaController implements Serializable{
 
     private List<User> findUserEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
+        
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(User.class));
-            Query q = em.createQuery(cq);
-            if (!all) {
-                q.setMaxResults(maxResults);
-                q.setFirstResult(firstResult);
-            }
-            return q.getResultList();
-        } finally {
-            em.close();
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<User> cq = cb.createQuery(User.class);
+        Root<User> root = cq.from(User.class);
+        cq.select(root);
+        cq.orderBy(cb.asc(root.get("userId"))); // <-- Aquí se ordena por ID ascendente
+
+        Query q = em.createQuery(cq);
+        if (!all) {
+            q.setMaxResults(maxResults);
+            q.setFirstResult(firstResult);
         }
+        return q.getResultList();
+    } finally {
+        em.close();
+    }
+        
+        
+        
+//        try {
+//            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+//            cq.select(cq.from(User.class));
+//            Query q = em.createQuery(cq);
+//            if (!all) {
+//                q.setMaxResults(maxResults);
+//                q.setFirstResult(firstResult);
+//            }
+//            return q.getResultList();
+//        } finally {
+//            em.close();
+//        }
     }
     
     

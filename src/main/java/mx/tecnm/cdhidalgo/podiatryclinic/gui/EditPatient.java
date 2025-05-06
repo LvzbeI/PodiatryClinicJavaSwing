@@ -21,7 +21,7 @@ public class EditPatient extends javax.swing.JPanel {
     
  
 Controller control = new Controller();
- UserJpaController userJpaController = new UserJpaController();
+UserJpaController userJpaController = new UserJpaController();
 
 Home homePanel = new Home();
 
@@ -206,6 +206,8 @@ String consultationDate = date.format(format);
 } else {
     JOptionPane.showMessageDialog(null, "Por favor verifica los campos ingresados.");
    }
+   
+   
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed

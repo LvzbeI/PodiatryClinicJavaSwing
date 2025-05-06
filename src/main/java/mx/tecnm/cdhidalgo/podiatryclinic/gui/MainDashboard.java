@@ -18,46 +18,55 @@ public class MainDashboard extends javax.swing.JFrame {
 
     
 //    PANELS
-    NewPatient registerPanel = new NewPatient();
+  //  NewPatient registerPanel = new NewPatient();
     ShowPatients showPatientsPanel = new ShowPatients();
     Home homePanel = new Home();
-    Edit editPanel = new Edit();
+  //  Edit editPanel = new Edit();
     ShowConsultations consultationdPanel = new ShowConsultations();
-    NewConsultation newConsultationPanel = new  NewConsultation();
-    EditConsultation editConsultationPanel = new EditConsultation();
+   // NewConsultation newConsultationPanel = new  NewConsultation();
+  //  EditConsultation editConsultationPanel = new EditConsultation();
     //EditPatient editPatientPanel = new EditPatient();
     PaymentForm payment = new PaymentForm();
     
     // FLATLAF SWING PANELS
     NewPatientPanel newPatientPanel = new NewPatientPanel();
     EditPatientPanel editPatientPanel = new EditPatientPanel();
+    NewConsultationPanel newConsultationPanel = new NewConsultationPanel();
+    EditConsultationPanel editConsultationPanel = new EditConsultationPanel();
     
     public MainDashboard() {
         initComponents();
 
         layeredMain.add(homePanel);
-        layeredMain.add(registerPanel);
-        layeredMain.add(showPatientsPanel);
-        layeredMain.add(editPanel);
-        layeredMain.add(newConsultationPanel);
-        layeredMain.add(consultationdPanel);
+        layeredMain.add(newPatientPanel);
         layeredMain.add(editPatientPanel);
+        layeredMain.add(newConsultationPanel);
+        
+       // layeredMain.add(registerPanel);
+        layeredMain.add(showPatientsPanel);
+        //layeredMain.add(editPanel);
+        
+        layeredMain.add(consultationdPanel);
+      
         layeredMain.add(editConsultationPanel);
         layeredMain.add(payment);
-         layeredMain.add(newPatientPanel);
+        
         
         
         homePanel.setVisible(true);
-        registerPanel.setVisible(false);
-        showPatientsPanel.setVisible(false);
-        editPanel.setVisible(false);
-        consultationdPanel.setVisible(false);
-        newConsultationPanel.setVisible(false);
+        newPatientPanel.setVisible(false);
         editPatientPanel.setVisible(false);
+        newConsultationPanel.setVisible(false);
+        
+       // registerPanel.setVisible(false);
+        showPatientsPanel.setVisible(false);
+      //  editPanel.setVisible(false);
+        consultationdPanel.setVisible(false);
+        
+       
         editConsultationPanel.setVisible(false);
         payment.setVisible(false);
         
-        newPatientPanel.setVisible(false);
         
         
       //  homeButton.setBorder(FlatButtonBorder);
@@ -267,61 +276,64 @@ public class MainDashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
       
         homePanel.setVisible(false);
-        showPatientsPanel.setVisible(false);
-        //registerPanel.setVisible(true);
         newPatientPanel.setVisible(true);
-        editPanel.setVisible(false);      
+        editPatientPanel.setVisible(false);
+        showPatientsPanel.setVisible(false);
         consultationdPanel.setVisible(false);
         newConsultationPanel.setVisible(false);
         editConsultationPanel.setVisible(false);
+        payment.setVisible(false);
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void patientsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientsButtonActionPerformed
         // TODO add your handling code here:
         homePanel.setVisible(false);
+        newPatientPanel.setVisible(false);
+        editPatientPanel.setVisible(false);
         showPatientsPanel.setVisible(true);
-        registerPanel.setVisible(false);
-        editPanel.setVisible(false);      
         consultationdPanel.setVisible(false);
         newConsultationPanel.setVisible(false);
         editConsultationPanel.setVisible(false);
+        payment.setVisible(false);
     }//GEN-LAST:event_patientsButtonActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
         
-        homePanel.setVisible(true);
+       homePanel.setVisible(true);
+        newPatientPanel.setVisible(false);
+        editPatientPanel.setVisible(false);
         showPatientsPanel.setVisible(false);
-        registerPanel.setVisible(false);
-        editPanel.setVisible(false);      
         consultationdPanel.setVisible(false);
-        newConsultationPanel.setVisible(false); 
+        newConsultationPanel.setVisible(false);
         editConsultationPanel.setVisible(false);
+        payment.setVisible(false);
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // TODO add your handling code here:
         
         homePanel.setVisible(false);
-        showPatientsPanel.setVisible(false);
-        registerPanel.setVisible(false);
-        editPanel.setVisible(false);     
+        newPatientPanel.setVisible(false);
         editPatientPanel.setVisible(true);
+        showPatientsPanel.setVisible(false);
         consultationdPanel.setVisible(false);
         newConsultationPanel.setVisible(false);
         editConsultationPanel.setVisible(false);
+        payment.setVisible(false);
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void newConsultationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newConsultationButtonActionPerformed
         
         
         homePanel.setVisible(false);
+        newPatientPanel.setVisible(false);
+        editPatientPanel.setVisible(false);
         showPatientsPanel.setVisible(false);
-        registerPanel.setVisible(false);
-        editPanel.setVisible(false);      
         consultationdPanel.setVisible(false);
         newConsultationPanel.setVisible(true);
         editConsultationPanel.setVisible(false);
+        payment.setVisible(false);
         
         
     }//GEN-LAST:event_newConsultationButtonActionPerformed
@@ -329,29 +341,31 @@ public class MainDashboard extends javax.swing.JFrame {
     private void showConsultationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showConsultationsButtonActionPerformed
         // TODO add your handling code here:
         homePanel.setVisible(false);
+        newPatientPanel.setVisible(false);
+        editPatientPanel.setVisible(false);
         showPatientsPanel.setVisible(false);
-        registerPanel.setVisible(false);
-        editPanel.setVisible(false);      
         consultationdPanel.setVisible(true);
         newConsultationPanel.setVisible(false);
         editConsultationPanel.setVisible(false);
+        payment.setVisible(false);
     }//GEN-LAST:event_showConsultationsButtonActionPerformed
 
     private void editConsultationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editConsultationButtonActionPerformed
         homePanel.setVisible(false);
+        newPatientPanel.setVisible(false);
+        editPatientPanel.setVisible(false);
         showPatientsPanel.setVisible(false);
-        registerPanel.setVisible(false);
-        editPanel.setVisible(false);      
         consultationdPanel.setVisible(false);
         newConsultationPanel.setVisible(false);
         editConsultationPanel.setVisible(true);
+        payment.setVisible(false);
     }//GEN-LAST:event_editConsultationButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       homePanel.setVisible(false);
+        homePanel.setVisible(false);
+        newPatientPanel.setVisible(false);
+        editPatientPanel.setVisible(false);
         showPatientsPanel.setVisible(false);
-        registerPanel.setVisible(false);
-        editPanel.setVisible(false);      
         consultationdPanel.setVisible(false);
         newConsultationPanel.setVisible(false);
         editConsultationPanel.setVisible(false);
