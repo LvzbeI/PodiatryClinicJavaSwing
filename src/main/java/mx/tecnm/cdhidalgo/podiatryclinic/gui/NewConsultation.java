@@ -9,6 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import mx.tecnm.cdhidalgo.podiatryclinic.logic.Controller;
+import raven.toast.Notifications;
 
 
 
@@ -150,8 +151,11 @@ String consultationDate = date.format(format);
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         cleanFields();
         
+      
+        toastSuccessMessage("Operation Canceled");
         homePanel.setVisible(true);
         this.setVisible(false);
+       
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void txtPatientIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPatientIdMouseClicked
@@ -162,6 +166,25 @@ String consultationDate = date.format(format);
          patientIdEmptyLabel.setText("");
     }//GEN-LAST:event_txtConsultationDataMouseClicked
       
+    
+    
+    
+     public void toastErrorMessage(String message){
+      Notifications.getInstance().show(
+                   Notifications.Type.ERROR, 
+                   Notifications.Location.TOP_CENTER,
+                   message);
+     }
+     
+     
+     
+     public void toastSuccessMessage(String message){
+      Notifications.getInstance().show(
+                   Notifications.Type.SUCCESS, 
+                   Notifications.Location.TOP_CENTER,
+                   message);
+     }
+    
     
     private void cleanFields(){
         txtPatientId.setText("");

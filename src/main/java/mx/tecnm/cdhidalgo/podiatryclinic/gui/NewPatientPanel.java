@@ -38,8 +38,9 @@ import raven.toast.ToastClientProperties;
 public class NewPatientPanel extends JPanel{
 
     
- Controller control = new Controller();
-   
+Controller control = new Controller();
+
+Home homePanel = new Home();
  
 LocalDate date = LocalDate.now();
 DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -167,6 +168,8 @@ private JTextArea txtObservations = new JTextArea();
         
         cancelButton.addActionListener(actionEvent -> {
                toastSuccessMessage("Operation Canceled");
+               homePanel.setVisible(true);
+               this.setVisible(false);
 //             ModalDialog.showModal(null, new SimpleModalBorder(null, "Payment Request", SimpleModalBorder.DEFAULT_OPTION, (controller, action) -> {
 //                 System.out.println("Hola");
 //            }));

@@ -36,10 +36,10 @@ public class PodiatryClinic extends JFrame{
     setSize(new Dimension(1280, 760));
     setLocationRelativeTo(null);
 
-    FormsManager.getInstance().initApplication(this); // ✅ primero inicializas FormsManager
+    FormsManager.getInstance().initApplication(this); 
 
-    loginForm = new Login();            // ✅ luego creas el login
-    FormsManager.getInstance().showForm(loginForm);  // ✅ lo muestras
+    loginForm = new Login();       
+    FormsManager.getInstance().showForm(loginForm); 
 
     Notifications.getInstance().setJFrame(this);
 
@@ -53,8 +53,8 @@ public class PodiatryClinic extends JFrame{
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY, Font.PLAIN, 13));
         FlatMacLightLaf.setup();
         EventQueue.invokeLater(() -> {
-         app = new PodiatryClinic();          // crea la ventana
-            app.setVisible(true);                // muestra la ventana
+         app = new PodiatryClinic();          
+            app.setVisible(true);               
         });
        
         

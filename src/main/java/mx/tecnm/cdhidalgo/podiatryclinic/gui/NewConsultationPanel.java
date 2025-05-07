@@ -40,6 +40,8 @@ public class NewConsultationPanel extends JPanel{
     
  Controller control = new Controller();
    
+ Home homePanel = new Home();
+ 
  
 LocalDate date = LocalDate.now();
 DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -120,47 +122,36 @@ private JTextArea txtObservations = new JTextArea();
         
         
         cancelButton.addActionListener(actionEvent -> {
-            
-//             ModalDialog.showModal(null, new SimpleModalBorder(null, "Payment Request", SimpleModalBorder.DEFAULT_OPTION, (controller, action) -> {
-//                 System.out.println("Hola");
-//            }));
+
             toastSuccessMessage("Operation Canceled");
-            //ModalBorderAction.getModalBorderAction(this).doAction(SimpleModalBorder.CANCEL_OPTION);
+            homePanel.setVisible(true);
+            this.setVisible(false);
         });
 
+        
+        
+        
         
         // SAVE INFO
         saveButton.addActionListener(actionEvent -> {
             
             
-            
-            
-         
-           String id = txtPatientID.getText();
-
-          // String consultationDate2 = consultationDate;
-          // String observations = txtObservations.getText();
-           
-           
-           
-      if (validateFields()){
-          
-        int patientid = Integer.parseInt(txtPatientID.getText());
-        String consultation = txtObservations.getText();
-
+        if (validateFields()){
+            int patientid = Integer.parseInt(txtPatientID.getText());
+            String consultation = txtObservations.getText();
 
         //call to persistence and save data
-        control.saveConsultation(patientid, consultation, consultationDate);
-        System.out.println("patientid: " + patientid + "\n" +                        
-                            "consultation: " + consultation + "\n"+ 
-                            "Consultation Date: " + consultationDate
-        );
+       control.saveConsultation(patientid, consultation, consultationDate);
         
-      // JOptionPane.showMessageDialog(null, "Consultation saved Successfully");
-          toastSuccessMessage("Consultation saved Successfully");
+//       System.out.println("patientid: " + patientid + "\n" +                        
+//                            "consultation: " + consultation + "\n"+ 
+//                            "Consultation Date: " + consultationDate
+//        );
+              toastSuccessMessage("Consultation saved Successfully");
+                 //JOptionPane.showMessageDialog(null, "Consultation saved Successfully");
 
-   }
-
+        }
+            
         });
 
        
@@ -198,8 +189,7 @@ private JTextArea txtObservations = new JTextArea();
                    message);
      }
      
-     
-     
+    
      public void toastSuccessMessage(String message){
          
          

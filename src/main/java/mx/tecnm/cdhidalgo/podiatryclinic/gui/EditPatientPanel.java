@@ -45,7 +45,7 @@ public class EditPatientPanel extends JPanel{
 Controller control = new Controller();
 UserJpaController userJpaController = new UserJpaController();
 
-
+Home homePanel = new Home();
 
 LocalDate date = LocalDate.now();
 DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -170,7 +170,7 @@ private JTextArea txtObservations = new JTextArea();
 //
 //JScrollPane scrollPane = new JScrollPane(txtObservations);
 
-// Aquí es lo importante: indica tamaño fijo en MigLayout
+
 
 
   
@@ -195,12 +195,9 @@ private JTextArea txtObservations = new JTextArea();
         
         
         cancelButton.addActionListener(actionEvent -> {
-            
-//             ModalDialog.showModal(null, new SimpleModalBorder(null, "Payment Request", SimpleModalBorder.DEFAULT_OPTION, (controller, action) -> {
-//                 System.out.println("Hola");
-//            }));
                toastSuccessMessage("Operation Canceled");
-            //ModalBorderAction.getModalBorderAction(this).doAction(SimpleModalBorder.CANCEL_OPTION);
+               homePanel.setVisible(true);
+               this.setVisible(false);
         });
 
         
@@ -425,7 +422,7 @@ private JTextArea txtObservations = new JTextArea();
            cmbSex.setSelectedItem(u.getSex());
           
            String dateStr = u.getBornDate(); // Ejemplo: "2000-05-05"
-           System.out.println(dateStr);
+          // System.out.println(dateStr);
            //DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
           // LocalDate localDate = LocalDate.parse(dateStr, format);
            dateEditor.setText(dateStr);

@@ -26,7 +26,7 @@ public class MainDashboard extends javax.swing.JFrame {
    // NewConsultation newConsultationPanel = new  NewConsultation();
   //  EditConsultation editConsultationPanel = new EditConsultation();
     //EditPatient editPatientPanel = new EditPatient();
-    PaymentForm payment = new PaymentForm();
+
     
     // FLATLAF SWING PANELS
     NewPatientPanel newPatientPanel = new NewPatientPanel();
@@ -49,7 +49,7 @@ public class MainDashboard extends javax.swing.JFrame {
         layeredMain.add(consultationdPanel);
       
         layeredMain.add(editConsultationPanel);
-        layeredMain.add(payment);
+    
         
         
         
@@ -65,15 +65,41 @@ public class MainDashboard extends javax.swing.JFrame {
         
        
         editConsultationPanel.setVisible(false);
-        payment.setVisible(false);
+     
         
         
         
       //  homeButton.setBorder(FlatButtonBorder);
       
      // FlatSVGIcon icon = new FlatSVGIcon("/mx/tecnm/cdhidalgo/podiatryclinic/icon/1.svg");
-       FlatSVGIcon icon = new FlatSVGIcon("home.svg");
-      homeButton.setIcon(icon);
+     
+     
+     // ICONS
+        
+       FlatSVGIcon homeIcon = new FlatSVGIcon("home.svg");
+       homeButton.setIcon(homeIcon);
+       
+       FlatSVGIcon patientsIcon = new FlatSVGIcon("user.svg");
+       patientsButton.setIcon(patientsIcon);
+       
+       FlatSVGIcon newPatientIcon = new FlatSVGIcon("addsquare.svg");
+       newPatientButton.setIcon(newPatientIcon);
+       
+       FlatSVGIcon editPatientIcon = new FlatSVGIcon("edit.svg");
+       editPatientButton.setIcon(editPatientIcon);
+       
+       
+       
+       FlatSVGIcon consultationsIcon = new FlatSVGIcon("consultation.svg");
+       consultationsButton.setIcon(consultationsIcon);
+       
+       FlatSVGIcon newConsultationIcon = new FlatSVGIcon("addsquare.svg");
+       newConsultationButton.setIcon(newConsultationIcon);
+       
+       FlatSVGIcon editConsultationIcon = new FlatSVGIcon("edit.svg");
+       editConsultationButton.setIcon(editConsultationIcon);
+       
+       
      // homeButton.setHorizontalTextPosition(SwingConstants.RIGHT);  // Texto a la derecha del icono
 //homeButton.setVerticalTextPosition(SwingConstants.CENTER); 
         //setIcon();
@@ -85,39 +111,34 @@ public class MainDashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         panelDashboard = new javax.swing.JPanel();
-        registerButton = new javax.swing.JButton();
+        newPatientButton = new javax.swing.JButton();
         patientsButton = new javax.swing.JButton();
         homeButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        editButton = new javax.swing.JButton();
-        showConsultationsButton = new javax.swing.JButton();
+        editPatientButton = new javax.swing.JButton();
+        consultationsButton = new javax.swing.JButton();
         newConsultationButton = new javax.swing.JButton();
         editConsultationButton = new javax.swing.JButton();
-        deleteConsultationButton = new javax.swing.JButton();
         iconolabel = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         layeredMain = new javax.swing.JLayeredPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panelDashboard.setPreferredSize(new java.awt.Dimension(180, 720));
 
-        registerButton.setBackground(new java.awt.Color(242, 242, 242));
-        registerButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        registerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add24.png"))); // NOI18N
-        registerButton.setText("New Patient");
-        registerButton.setBorder(null);
-        registerButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        registerButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
+        newPatientButton.setBackground(new java.awt.Color(242, 242, 242));
+        newPatientButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        newPatientButton.setText("New Patient");
+        newPatientButton.setBorder(null);
+        newPatientButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        newPatientButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
+                newPatientButtonActionPerformed(evt);
             }
         });
 
         patientsButton.setBackground(new java.awt.Color(242, 242, 242));
         patientsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        patientsButton.setText("Show Patients");
+        patientsButton.setText("Patients");
         patientsButton.setBorder(null);
         patientsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,28 +157,23 @@ public class MainDashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(242, 242, 242));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setText("Delete Patient");
-        jButton1.setBorder(null);
-
-        editButton.setBackground(new java.awt.Color(242, 242, 242));
-        editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        editButton.setText("Edit Patient");
-        editButton.setBorder(null);
-        editButton.addActionListener(new java.awt.event.ActionListener() {
+        editPatientButton.setBackground(new java.awt.Color(242, 242, 242));
+        editPatientButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        editPatientButton.setText("Edit Patient");
+        editPatientButton.setBorder(null);
+        editPatientButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editButtonActionPerformed(evt);
+                editPatientButtonActionPerformed(evt);
             }
         });
 
-        showConsultationsButton.setBackground(new java.awt.Color(242, 242, 242));
-        showConsultationsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        showConsultationsButton.setText("Show Consultations");
-        showConsultationsButton.setBorder(null);
-        showConsultationsButton.addActionListener(new java.awt.event.ActionListener() {
+        consultationsButton.setBackground(new java.awt.Color(242, 242, 242));
+        consultationsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        consultationsButton.setText("Consultations");
+        consultationsButton.setBorder(null);
+        consultationsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showConsultationsButtonActionPerformed(evt);
+                consultationsButtonActionPerformed(evt);
             }
         });
 
@@ -181,18 +197,6 @@ public class MainDashboard extends javax.swing.JFrame {
             }
         });
 
-        deleteConsultationButton.setBackground(new java.awt.Color(242, 242, 242));
-        deleteConsultationButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        deleteConsultationButton.setText("Delete Consultation");
-        deleteConsultationButton.setBorder(null);
-
-        jButton2.setText("payment");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout panelDashboardLayout = new javax.swing.GroupLayout(panelDashboard);
         panelDashboard.setLayout(panelDashboardLayout);
         panelDashboardLayout.setHorizontalGroup(
@@ -201,47 +205,49 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelDashboardLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(deleteConsultationButton, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                            .addComponent(editConsultationButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(newConsultationButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(showConsultationsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(editButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(registerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(patientsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(homeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(panelDashboardLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
                         .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(iconolabel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(patientsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(panelDashboardLayout.createSequentialGroup()
+                                .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(editConsultationButton, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                                        .addComponent(editPatientButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(consultationsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(newPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(panelDashboardLayout.createSequentialGroup()
+                        .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelDashboardLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelDashboardLayout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(iconolabel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(panelDashboardLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(newConsultationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelDashboardLayout.setVerticalGroup(
             panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDashboardLayout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(patientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(showConsultationsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(newConsultationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(editConsultationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(deleteConsultationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(patientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(newPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(editPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(consultationsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(newConsultationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(editConsultationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
                 .addComponent(iconolabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -272,7 +278,7 @@ public class MainDashboard extends javax.swing.JFrame {
     
     
     
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+    private void newPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPatientButtonActionPerformed
         // TODO add your handling code here:
       
         homePanel.setVisible(false);
@@ -282,8 +288,8 @@ public class MainDashboard extends javax.swing.JFrame {
         consultationdPanel.setVisible(false);
         newConsultationPanel.setVisible(false);
         editConsultationPanel.setVisible(false);
-        payment.setVisible(false);
-    }//GEN-LAST:event_registerButtonActionPerformed
+        
+    }//GEN-LAST:event_newPatientButtonActionPerformed
 
     private void patientsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientsButtonActionPerformed
         // TODO add your handling code here:
@@ -294,7 +300,7 @@ public class MainDashboard extends javax.swing.JFrame {
         consultationdPanel.setVisible(false);
         newConsultationPanel.setVisible(false);
         editConsultationPanel.setVisible(false);
-        payment.setVisible(false);
+     
     }//GEN-LAST:event_patientsButtonActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
@@ -307,10 +313,10 @@ public class MainDashboard extends javax.swing.JFrame {
         consultationdPanel.setVisible(false);
         newConsultationPanel.setVisible(false);
         editConsultationPanel.setVisible(false);
-        payment.setVisible(false);
+      
     }//GEN-LAST:event_homeButtonActionPerformed
 
-    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+    private void editPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPatientButtonActionPerformed
         // TODO add your handling code here:
         
         homePanel.setVisible(false);
@@ -320,8 +326,8 @@ public class MainDashboard extends javax.swing.JFrame {
         consultationdPanel.setVisible(false);
         newConsultationPanel.setVisible(false);
         editConsultationPanel.setVisible(false);
-        payment.setVisible(false);
-    }//GEN-LAST:event_editButtonActionPerformed
+       
+    }//GEN-LAST:event_editPatientButtonActionPerformed
 
     private void newConsultationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newConsultationButtonActionPerformed
         
@@ -333,12 +339,12 @@ public class MainDashboard extends javax.swing.JFrame {
         consultationdPanel.setVisible(false);
         newConsultationPanel.setVisible(true);
         editConsultationPanel.setVisible(false);
-        payment.setVisible(false);
+       
         
         
     }//GEN-LAST:event_newConsultationButtonActionPerformed
 
-    private void showConsultationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showConsultationsButtonActionPerformed
+    private void consultationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultationsButtonActionPerformed
         // TODO add your handling code here:
         homePanel.setVisible(false);
         newPatientPanel.setVisible(false);
@@ -347,8 +353,8 @@ public class MainDashboard extends javax.swing.JFrame {
         consultationdPanel.setVisible(true);
         newConsultationPanel.setVisible(false);
         editConsultationPanel.setVisible(false);
-        payment.setVisible(false);
-    }//GEN-LAST:event_showConsultationsButtonActionPerformed
+      
+    }//GEN-LAST:event_consultationsButtonActionPerformed
 
     private void editConsultationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editConsultationButtonActionPerformed
         homePanel.setVisible(false);
@@ -358,36 +364,22 @@ public class MainDashboard extends javax.swing.JFrame {
         consultationdPanel.setVisible(false);
         newConsultationPanel.setVisible(false);
         editConsultationPanel.setVisible(true);
-        payment.setVisible(false);
+       
     }//GEN-LAST:event_editConsultationButtonActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        homePanel.setVisible(false);
-        newPatientPanel.setVisible(false);
-        editPatientPanel.setVisible(false);
-        showPatientsPanel.setVisible(false);
-        consultationdPanel.setVisible(false);
-        newConsultationPanel.setVisible(false);
-        editConsultationPanel.setVisible(false);
-        payment.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
 
    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton deleteConsultationButton;
-    private javax.swing.JButton editButton;
+    private javax.swing.JButton consultationsButton;
     private javax.swing.JButton editConsultationButton;
+    private javax.swing.JButton editPatientButton;
     private javax.swing.JButton homeButton;
     private javax.swing.JLabel iconolabel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLayeredPane layeredMain;
     private javax.swing.JButton newConsultationButton;
+    private javax.swing.JButton newPatientButton;
     private javax.swing.JPanel panelDashboard;
     private javax.swing.JButton patientsButton;
-    private javax.swing.JButton registerButton;
-    private javax.swing.JButton showConsultationsButton;
     // End of variables declaration//GEN-END:variables
 }

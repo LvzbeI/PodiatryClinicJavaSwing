@@ -24,7 +24,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
+import mx.tecnm.cdhidalgo.podiatryclinic.logic.ConsultationDTO;
 import mx.tecnm.cdhidalgo.podiatryclinic.logic.Controller;
+import mx.tecnm.cdhidalgo.podiatryclinic.persistence.ConsultationJpaController;
 import net.miginfocom.swing.MigLayout;
 import raven.datetime.DatePicker;
 import raven.modal.ModalDialog;
@@ -39,14 +41,16 @@ import raven.toast.ToastClientProperties;
 public class EditConsultationPanel extends JPanel{
 
     
- Controller control = new Controller();
-   
+
+Controller control = new Controller();
+ConsultationJpaController consultationJpaController = new ConsultationJpaController();
  
 LocalDate date = LocalDate.now();
 DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 String consultationDate = date.format(format);
 
-
+Home homePanel = new Home();
+        
 
 
 private JTextField txtConsultationID = new JTextField();
@@ -138,46 +142,72 @@ private JTextArea txtObservations = new JTextArea();
         
         
         cancelButton.addActionListener(actionEvent -> {
-            
-//             ModalDialog.showModal(null, new SimpleModalBorder(null, "Payment Request", SimpleModalBorder.DEFAULT_OPTION, (controller, action) -> {
-//                 System.out.println("Hola");
-//            }));
             toastSuccessMessage("Operation Canceled");
-            //ModalBorderAction.getModalBorderAction(this).doAction(SimpleModalBorder.CANCEL_OPTION);
+            homePanel.setVisible(true);
+            this.setVisible(false);
         });
 
+        
+        searchIDButton.addActionListener(actionEvent -> {
+            
+          String idValue = txtConsultationID.getText(); 
+         if(valdidateID(idValue)){ 
+             enableFields();
+             populate();
+            }
+            
+        });
+        
+        
+        
         
         // SAVE INFO
         saveButton.addActionListener(actionEvent -> {
             
+            String idValue = txtConsultationID.getText(); 
+        
+         if(valdidateID(idValue)){ 
+             int consultationID = Integer.parseInt(txtConsultationID.getText());
+             String consultation = txtObservations.getText();
+             int patientID = Integer.parseInt(txtPatientID.getText());
             
+        //call to persistence and save data
+        control.updateConsultation(consultationID, patientID, consultation, txtConsultationDate.getText());
+        System.out.println("Consultation Id: " + consultationID + "\n" +
+                            "patientid: " + patientID + "\n" +                        
+                            "consultation: " + consultation + "\n"+ 
+                            "Consultation Date: " + consultationDate);
+        toastSuccessMessage("Consultation saved Successfully");
+        
+       //JOptionPane.showMessageDialog(null, "Consultation saved Successfully");
+            }
             
             
          
-           String id = txtPatientID.getText();
-
-          // String consultationDate2 = consultationDate;
-          // String observations = txtObservations.getText();
-           
-           
-           
-      if (validateFields()){
-          
-        int patientid = Integer.parseInt(txtPatientID.getText());
-        String consultation = txtObservations.getText();
-
-
-        //call to persistence and save data
-        control.saveConsultation(patientid, consultation, consultationDate);
-        System.out.println("patientid: " + patientid + "\n" +                        
-                            "consultation: " + consultation + "\n"+ 
-                            "Consultation Date: " + consultationDate
-        );
-        
-      // JOptionPane.showMessageDialog(null, "Consultation saved Successfully");
-          toastSuccessMessage("Consultation saved Successfully");
-
-   }
+//           String id = txtPatientID.getText();
+//
+//          // String consultationDate2 = consultationDate;
+//          // String observations = txtObservations.getText();
+//           
+//           
+//           
+//      if (validateFields()){
+//          
+//        int patientid = Integer.parseInt(txtPatientID.getText());
+//        String consultation = txtObservations.getText();
+//
+//
+//        //call to persistence and save data
+//        control.saveConsultation(patientid, consultation, consultationDate);
+//        System.out.println("patientid: " + patientid + "\n" +                        
+//                            "consultation: " + consultation + "\n"+ 
+//                            "Consultation Date: " + consultationDate
+//        );
+//        
+//      // JOptionPane.showMessageDialog(null, "Consultation saved Successfully");
+//          toastSuccessMessage("Consultation saved Successfully");
+//
+//   }
 
         });
 
@@ -189,6 +219,30 @@ private JTextArea txtObservations = new JTextArea();
         
         
     }
+    
+    
+    
+     public boolean valdidateID(String idValue){
+
+    if(idValue == null || idValue.trim().isEmpty()){
+    return false;
+    }
+    try {
+        int id = Integer.parseInt(idValue);
+        if (id <= 0) {
+            //errorLabel.setText("Type a valid ID");
+            return false;
+        }
+    } catch (NumberFormatException e) {
+        //errorLabel.setText("ID must be a number");
+        return false;
+    }
+    
+
+     return true;
+    
+       
+   }
     
     
      public void print(String name, String secondname, String sex, String bornDate, String email, 
@@ -258,12 +312,40 @@ private JTextArea txtObservations = new JTextArea();
       
       
        private void cleanFields(){
-
+         txtConsultationID.setText("");
          txtPatientID.setText("");
-        txtObservations.setText("");
+         txtPatientName.setText("");
+         txtObservations.setText("");
     
     }
     
+       
+       
+       public void populate(){
+    
+         int id = Integer.parseInt(txtConsultationID.getText());
+         ConsultationDTO c = consultationJpaController.findConsultation(id);
+         
+         if(!(c==null)){
+        // txtConsultationID.setText(c.getConsultationId());
+         txtPatientID.setText(Integer.toString(c.getPatientId()));
+         txtPatientName.setText(c.getPatientName());
+         txtConsultationDate.setText(c.getConsultationDate());
+         txtObservations.setText(c.getConsultation());
+         }
+         else{
+             toastErrorMessage("The Consultation does'n exist");
+             //JOptionPane.showMessageDialog(null, "The consultation with the ID: " + id + " does'n exist");
+         }
+          
+    }
+
+ 
+   public void enableFields(){
+        
+         //txtPatientID.setEnabled(true);
+         txtObservations.setEnabled(true);
+    }
     
     
     

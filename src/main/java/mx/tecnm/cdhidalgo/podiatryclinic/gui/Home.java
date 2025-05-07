@@ -1,6 +1,8 @@
 
 package mx.tecnm.cdhidalgo.podiatryclinic.gui;
 
+import com.formdev.flatlaf.extras.FlatSVGIcon;
+
 /**
  *
  * @author tony
@@ -11,7 +13,26 @@ public class Home extends javax.swing.JPanel {
      * Creates new form Home
      */
     public Home() {
-        initComponents();
+        
+        
+       initComponents();
+       //FlatSVGIcon editPatientIcon = new FlatSVGIcon("healthcare.jpg");
+     //  bgLabel.setIcon(editPatientIcon);
+     
+     
+      FlatSVGIcon java = new FlatSVGIcon("java.svg");
+       javaLabel.setIcon(java);
+     
+        
+        FlatSVGIcon maven = new FlatSVGIcon("maven.svg");
+       mavenLabel.setIcon(maven);
+       
+       FlatSVGIcon postgre = new FlatSVGIcon("postgresql.svg");
+       postgreLabel.setIcon(postgre);
+       
+       FlatSVGIcon docker = new FlatSVGIcon("docker2.svg");
+       dockerLabel.setIcon(docker);
+       
     }
 
     /**
@@ -23,32 +44,52 @@ public class Home extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        logoLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        javaLabel = new javax.swing.JLabel();
+        mavenLabel = new javax.swing.JLabel();
+        postgreLabel = new javax.swing.JLabel();
+        dockerLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setPreferredSize(new java.awt.Dimension(1280, 760));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("adsffasdfas");
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pod.png"))); // NOI18N
+        add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, 380, 400));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(215, 215, 215)
-                .addComponent(jLabel1)
-                .addContainerGap(352, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(jLabel1)
-                .addContainerGap(646, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("PODIATRY CLINIC");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 380, 40));
+
+        javaLabel.setBackground(new java.awt.Color(0, 204, 153));
+        add(javaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 560, 120, 100));
+        add(mavenLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 560, 140, 100));
+        add(postgreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 560, 140, 100));
+        add(dockerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 560, 120, 100));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Made With");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 540, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/degradado4.jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jLabel3.setPreferredSize(new java.awt.Dimension(1280, 760));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 830));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel dockerLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel javaLabel;
+    private javax.swing.JLabel logoLabel;
+    private javax.swing.JLabel mavenLabel;
+    private javax.swing.JLabel postgreLabel;
     // End of variables declaration//GEN-END:variables
 }
