@@ -91,6 +91,7 @@ mvn install:install-file `
 
 4. Run `docker compose up` on your terminal.
 5. Import and Initialize the project on your preference Java IDE.
+6. User: `admin` password: `1234`
 
 
 ## 📁 Project Structure
