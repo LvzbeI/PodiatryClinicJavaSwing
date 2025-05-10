@@ -12,5 +12,6 @@ services:
       - POSTGRES_PASSWORD=123
       - POSTGRES_DB=podiatrydatabase
     volumes:
-      - ./postgres:/var/lib/postgresql/data
+      - ./postgres:/var/lib/postgresql/data 
+      - ./initdb:/docker-entrypoint-initdb.d #initalize the db automatically
  
